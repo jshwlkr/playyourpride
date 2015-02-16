@@ -6,3 +6,7 @@ The goal of this project is largely to provide a resource for people to discover
 Development will mainly occur in the gh-pages branch.
 
 The site is avaialable via http://queersplaygames.com or http://jshwlkr.github.io/queersplaygames/.
+
+Site template via http://html5up.net/.
+Additional icons via http://iconmonstr.com/.
+Banner photo via http://www.lifeofpix.com/.
