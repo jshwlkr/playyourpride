@@ -3206,3 +3206,39 @@
 .icon img {
 	margin-top: -60px;
 }
+
+.right {
+	float: right;
+}
+
+.filter-group li label, .filter-all li label {
+	padding: 7px;
+	margin: 3px;
+}
+
+.filter-group li, .filter-all li {
+	margin: 7px;
+}
+
+@media screen and (max-width: 840px) {
+	.filters-toggle {
+		display:none;
+	}
+
+	#filters-target strong {
+		margin-left:10px;
+	}
+}
+
+@media screen and (min-width: 841px) {
+	.filters-toggle {
+		display: block !important;
+	}
+
+	.fa-chevron-up::before {
+    content: '';
+	}
+	.fa-chevron-right::before {
+    content: '';
+	}
+}

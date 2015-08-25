@@ -114,13 +114,41 @@
 			}
 
 	});
-
-$('#sortable-container').isotope({
+var $container = $('#sortable-container');
+$container.isotope({
   // options
   itemSelector: '.sortable',
   layoutMode: 'vertical',
   isResizeBound: false
 });
 
+$('.filter-group').on( 'change', 'input', function() {
+
+              var isoFilters = [];
+
+							var checked = document.querySelectorAll('.filter-group input:checked');
+							$.each(checked, function(i, f) {
+								filter = $(f).attr('value');
+								isoFilters.push(filter);
+							});
+							var selector = isoFilters.join('');
+
+							$container.isotope({ filter: selector });
+							$('.filter-all input').prop('checked', false);
+});
+
+$('.filter-all').on( 'change', 'input', function() {
+		$container.isotope({ filter: '*' });
+		$('.filter-group input').prop('checked', false);
+	});
+
+
+	$('#filters-target').click(function() {
+			if (skel.breakpoint('mobile').active || skel.breakpoint('narrower').active) {
+		    $('.filters-toggle').toggle('slide');
+		    $('#filters-target').toggleClass('fa-chevron-up');
+		    $('#filters-target').toggleClass('fa-chevron-down');
+			}
+    });
 
 })(jQuery);
