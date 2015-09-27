@@ -3221,6 +3221,9 @@
 }
 
 @media screen and (max-width: 736px) {
+	#banner .inner {
+		padding: 0 .1em;
+	}
 	header.special {
 		margin-top: 1em;
 	}
