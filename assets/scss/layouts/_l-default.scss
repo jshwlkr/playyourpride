@@ -1,0 +1,19 @@
+// --------------------------------------------------
+// Layout default
+// --------------------------------------------------
+
+header {
+  @include grid-row;
+
+  nav {
+    @include grid-column;
+  }
+}
+
+footer {
+  @include grid-row;
+
+  nav {
+    @include grid-column;
+  }
+}
