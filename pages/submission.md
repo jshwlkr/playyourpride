@@ -1,6 +1,5 @@
 ---
-layout: layouts/home.njk
-permalink: /submission
+layout: layouts/base.njk
 title:  Submission
 ---
 

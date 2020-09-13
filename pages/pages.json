@@ -1,0 +1,6 @@
+{
+  "layout": "layouts/home.njk",
+  "permalink": "{{ title | slug }}/index.html",
+  "tags": "page",
+  "bodyClass": "page"
+}
