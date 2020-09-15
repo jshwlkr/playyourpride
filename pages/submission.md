@@ -1,5 +1,5 @@
 ---
-layout: layouts/base.njk
+layout: layouts/submission.njk
 title:  Submission
 ---
 
