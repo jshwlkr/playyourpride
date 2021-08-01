@@ -1,13 +1,39 @@
 const fs = require("fs");
 const { DateTime } = require("luxon");
-const pluginRss = require("@11ty/eleventy-plugin-rss");
+const pluginRSS = require("@11ty/eleventy-plugin-rss");
 const pluginNavigation = require("@11ty/eleventy-navigation");
+const tinyCSS = require('@sardine/eleventy-plugin-tinycss');
 const markdownIt = require("markdown-it");
 const markdownItAnchor = require("markdown-it-anchor");
+const htmlmin = require("html-minifier");
 
 module.exports = function(eleventyConfig) {
-  eleventyConfig.addPlugin(pluginRss);
+  eleventyConfig.addPlugin(pluginRSS);
   eleventyConfig.addPlugin(pluginNavigation);
+
+  const tinyOptions = {
+    output: '_site',
+  };
+
+  eleventyConfig.addPlugin(tinyCSS, tinyOptions);
+
+  eleventyConfig.addFilter("cssmin", function(code) {
+    return new CleanCSS({}).minify(code).styles;
+  });
+
+  eleventyConfig.addTransform("htmlmin", function(content, outputPath) {
+    // Eleventy 1.0+: use this.inputPath and this.outputPath instead
+    if( outputPath && outputPath.endsWith(".html") ) {
+      let minified = htmlmin.minify(content, {
+        useShortDoctype: true,
+        removeComments: true,
+        collapseWhitespace: true
+      });
+      return minified;
+    }
+
+    return content;
+  });
 
   eleventyConfig.setDataDeepMerge(true);
 
